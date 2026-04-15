@@ -1,0 +1,101 @@
+# 强脑（BrainCo）灵巧手配置
+# 五指手：单手 6 DOF（每指 1 个主动电机）
+# 控制方式：位置归一化到 [0, 1]，0=完全张开，1=完全握紧
+# 参考: unitreerobotics/xr_teleoperate robot_hand_brainco.py
+
+hand_name: "brainco"
+display_name: "强脑 BrainCo"
+dof: 6
+fingers: ["thumb", "thumb_aux", "index", "middle", "ring", "pinky"]
+
+urdf:
+  left: "brainco_left.urdf"    # 待获取
+  right: "brainco_right.urdf"  # 待获取
+
+# 关节列表（基于 BrainCo 官方电机索引定义）
+joints:
+  left:
+    - name: "left_thumb_joint"
+      finger: "thumb"
+      dof_index: 0
+      description: "拇指主弯曲"
+      limit_lower: 0.0
+      limit_upper: 1.52    # rad
+      normalized_range: [0.0, 1.0]
+    - name: "left_thumb_aux_joint"
+      finger: "thumb_aux"
+      dof_index: 1
+      description: "拇指辅助关节"
+      limit_lower: 0.0
+      limit_upper: 1.05
+      normalized_range: [0.0, 1.0]
+    - name: "left_index_joint"
+      finger: "index"
+      dof_index: 2
+      description: "食指弯曲"
+      limit_lower: 0.0
+      limit_upper: 1.47
+      normalized_range: [0.0, 1.0]
+    - name: "left_middle_joint"
+      finger: "middle"
+      dof_index: 3
+      description: "中指弯曲"
+      limit_lower: 0.0
+      limit_upper: 1.47
+      normalized_range: [0.0, 1.0]
+    - name: "left_ring_joint"
+      finger: "ring"
+      dof_index: 4
+      description: "无名指弯曲"
+      limit_lower: 0.0
+      limit_upper: 1.47
+      normalized_range: [0.0, 1.0]
+    - name: "left_pinky_joint"
+      finger: "pinky"
+      dof_index: 5
+      description: "小指弯曲"
+      limit_lower: 0.0
+      limit_upper: 1.47
+      normalized_range: [0.0, 1.0]
+
+  right:
+    - name: "right_thumb_joint"
+      finger: "thumb"
+      dof_index: 0
+      limit_lower: 0.0
+      limit_upper: 1.52
+    - name: "right_thumb_aux_joint"
+      finger: "thumb_aux"
+      dof_index: 1
+      limit_lower: 0.0
+      limit_upper: 1.05
+    - name: "right_index_joint"
+      finger: "index"
+      dof_index: 2
+      limit_lower: 0.0
+      limit_upper: 1.47
+    - name: "right_middle_joint"
+      finger: "middle"
+      dof_index: 3
+      limit_lower: 0.0
+      limit_upper: 1.47
+    - name: "right_ring_joint"
+      finger: "ring"
+      dof_index: 4
+      limit_lower: 0.0
+      limit_upper: 1.47
+    - name: "right_pinky_joint"
+      finger: "pinky"
+      dof_index: 5
+      limit_lower: 0.0
+      limit_upper: 1.47
+
+# 输入数据格式说明
+input_format:
+  type: "normalized"   # 输入为归一化值 [0,1]，需转换为弧度
+  note: "BrainCo retarget 输出为归一化值，可视化前需乘以 limit_upper 转为弧度"
+
+urdf_download:
+  source: "待确认"
+  note: "BrainCo 官方 URDF 尚未公开，可使用简化模型替代"
+  status: "待获取"
