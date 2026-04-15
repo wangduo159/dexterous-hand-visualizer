@@ -1,0 +1,33 @@
+# LEAP Hand 配置（Carnegie Mellon University）
+# 四指手，16 DOF，关节名为纯数字
+# 0~3: 食指, 4~7: 中指, 8~11: 无名指, 12~15: 拇指
+
+hand_name: "leap_hand"
+display_name: "LEAP Hand"
+dof: 16
+fingers: ["index", "middle", "ring", "thumb"]
+
+urdf:
+  left:  "leap_hand_left.urdf"
+  right: "leap_hand_right.urdf"
+
+urdf_dir_override: "/Users/wangduo/Downloads/retarget/assets/robots/hands/leap_hand"
+
+joints:
+  right:
+    - {name: "0",  finger: "index",  dof_index: 0,  limit_lower: -1.047, limit_upper: 1.047}
+    - {name: "1",  finger: "index",  dof_index: 1,  limit_lower: -0.314, limit_upper: 2.23}
+    - {name: "2",  finger: "index",  dof_index: 2,  limit_lower: -0.506, limit_upper: 1.885}
+    - {name: "3",  finger: "index",  dof_index: 3,  limit_lower: -0.366, limit_upper: 2.042}
+    - {name: "4",  finger: "middle", dof_index: 4,  limit_lower: -1.047, limit_upper: 1.047}
+    - {name: "5",  finger: "middle", dof_index: 5,  limit_lower: -0.314, limit_upper: 2.23}
+    - {name: "6",  finger: "middle", dof_index: 6,  limit_lower: -0.506, limit_upper: 1.885}
+    - {name: "7",  finger: "middle", dof_index: 7,  limit_lower: -0.366, limit_upper: 2.042}
+    - {name: "8",  finger: "ring",   dof_index: 8,  limit_lower: -1.047, limit_upper: 1.047}
+    - {name: "9",  finger: "ring",   dof_index: 9,  limit_lower: -0.314, limit_upper: 2.23}
+    - {name: "10", finger: "ring",   dof_index: 10, limit_lower: -0.506, limit_upper: 1.885}
+    - {name: "11", finger: "ring",   dof_index: 11, limit_lower: -0.366, limit_upper: 2.042}
+    - {name: "12", finger: "thumb",  dof_index: 12, limit_lower: -0.349, limit_upper: 2.094}
+    - {name: "13", finger: "thumb",  dof_index: 13, limit_lower: -0.47,  limit_upper: 2.443}
+    - {name: "14", finger: "thumb",  dof_index: 14, limit_lower: -1.2,   limit_upper: 1.9}
+    - {name: "15", finger: "thumb",  dof_index: 15, limit_lower: -1.34,  limit_upper: 1.88}
