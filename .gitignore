@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.Python
+env/
+venv/
+.venv/
+pip-wheel-metadata/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Rerun recordings (can be large)
+*.rrd
+
+# NumPy data files
+*.npy
+*.npz
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Output directory (generated files)
+output/
+
+# URDF assets are downloaded separately — only track the directory structure
+# Uncomment the lines below if you want to exclude mesh files from git
+# urdf_assets/**/*.STL
+# urdf_assets/**/*.stl
+# urdf_assets/**/*.glb
+# urdf_assets/**/*.obj
+
+# Logs
+*.log
