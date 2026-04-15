@@ -1,0 +1,17 @@
+# Panda Gripper 配置（Franka Emika）
+# 双指夹爪，2 DOF，prismatic 关节（线性平移，单位：米）
+
+hand_name: "panda_gripper"
+display_name: "Panda Gripper"
+dof: 2
+fingers: ["finger1", "finger2"]
+
+urdf:
+  default: "panda_gripper_glb.urdf"
+
+urdf_dir_override: "/Users/wangduo/Downloads/retarget/assets/robots/hands/panda_gripper"
+
+joints:
+  default:
+    - {name: "panda_finger_joint1", finger: "finger1", dof_index: 0, limit_lower: 0.0, limit_upper: 0.04}
+    - {name: "panda_finger_joint2", finger: "finger2", dof_index: 1, limit_lower: 0.0, limit_upper: 0.04}
