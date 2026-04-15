@@ -1,0 +1,32 @@
+# 宇树 Dex1-1 夹爪配置
+# 结构：两指夹爪，每指一个 prismatic（线性平移）关节
+# DOF = 2（Joint1_1 和 Joint2_1，均为 prismatic 类型）
+# 注意：其余关节（Joint1_2/3, Joint2_2/3）均为 fixed，不可驱动
+# URDF 来源: https://github.com/unitreerobotics/unitree_ros
+#            robots/dexterous_hand_description/dex1_1/
+
+hand_name: "unitree_dex1_1"
+display_name: "宇树 Dex1-1"
+dof: 2
+fingers: ["finger1", "finger2"]
+
+urdf:
+  default: "dex1_1.urdf"
+
+joints:
+  default:
+    - name: "Joint1_1"
+      finger: "finger1"
+      dof_index: 0
+      limit_lower: -0.02    # -20mm
+      limit_upper:  0.0245  # +24.5mm（线性位移，单位：米）
+    - name: "Joint2_1"
+      finger: "finger2"
+      dof_index: 1
+      limit_lower: -0.02
+      limit_upper:  0.0245
+
+urdf_download:
+  source: "https://github.com/unitreerobotics/unitree_ros"
+  path_in_repo: "robots/dexterous_hand_description/dex1_1/"
+  note: "两指夹爪，prismatic 关节，单位为米"
