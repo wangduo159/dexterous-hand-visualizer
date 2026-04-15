@@ -1,0 +1,153 @@
+# BrainCo Revo2 灵巧手配置（强脑科技）
+# 五指手：拇指(3DOF) + 食指(2DOF) + 中指(2DOF) + 无名指(2DOF) + 小指(2DOF) = 11 DOF
+# URDF 来源: https://github.com/BrainCoTech/revo2_description
+# Mesh 格式: STL
+
+hand_name: "brainco_revo2"
+display_name: "BrainCo Revo2"
+dof: 11
+fingers: ["thumb", "index", "middle", "ring", "pinky"]
+
+# URDF 文件路径（相对于 urdf_assets/brainco_revo2/）
+urdf:
+  left:  "revo2_left_hand.urdf"
+  right: "revo2_right_hand.urdf"
+
+# 左手关节列表
+joints:
+  left:
+    # 拇指 (Thumb) - 3 DOF
+    - name: "left_thumb_metacarpal_joint"
+      finger: "thumb"
+      dof_index: 0
+      limit_lower: 0.0
+      limit_upper: 1.57      # 90°，拇指掌骨外展
+    - name: "left_thumb_proximal_joint"
+      finger: "thumb"
+      dof_index: 1
+      limit_lower: 0.0
+      limit_upper: 1.03      # ~59°，拇指近端弯曲
+    - name: "left_thumb_distal_joint"
+      finger: "thumb"
+      dof_index: 2
+      limit_lower: 0.0
+      limit_upper: 1.03      # ~59°，拇指末端弯曲
+
+    # 食指 (Index) - 2 DOF
+    - name: "left_index_proximal_joint"
+      finger: "index"
+      dof_index: 3
+      limit_lower: 0.0
+      limit_upper: 1.41      # ~81°
+    - name: "left_index_distal_joint"
+      finger: "index"
+      dof_index: 4
+      limit_lower: 0.0
+      limit_upper: 1.63      # ~93°
+
+    # 中指 (Middle) - 2 DOF
+    - name: "left_middle_proximal_joint"
+      finger: "middle"
+      dof_index: 5
+      limit_lower: 0.0
+      limit_upper: 1.41
+    - name: "left_middle_distal_joint"
+      finger: "middle"
+      dof_index: 6
+      limit_lower: 0.0
+      limit_upper: 1.63
+
+    # 无名指 (Ring) - 2 DOF
+    - name: "left_ring_proximal_joint"
+      finger: "ring"
+      dof_index: 7
+      limit_lower: 0.0
+      limit_upper: 1.41
+    - name: "left_ring_distal_joint"
+      finger: "ring"
+      dof_index: 8
+      limit_lower: 0.0
+      limit_upper: 1.63
+
+    # 小指 (Pinky) - 2 DOF
+    - name: "left_pinky_proximal_joint"
+      finger: "pinky"
+      dof_index: 9
+      limit_lower: 0.0
+      limit_upper: 1.41
+    - name: "left_pinky_distal_joint"
+      finger: "pinky"
+      dof_index: 10
+      limit_lower: 0.0
+      limit_upper: 1.63
+
+  right:
+    # 拇指 (Thumb) - 3 DOF
+    - name: "right_thumb_metacarpal_joint"
+      finger: "thumb"
+      dof_index: 0
+      limit_lower: 0.0
+      limit_upper: 1.57
+    - name: "right_thumb_proximal_joint"
+      finger: "thumb"
+      dof_index: 1
+      limit_lower: 0.0
+      limit_upper: 1.03
+    - name: "right_thumb_distal_joint"
+      finger: "thumb"
+      dof_index: 2
+      limit_lower: 0.0
+      limit_upper: 1.03
+
+    # 食指 (Index) - 2 DOF
+    - name: "right_index_proximal_joint"
+      finger: "index"
+      dof_index: 3
+      limit_lower: 0.0
+      limit_upper: 1.41
+    - name: "right_index_distal_joint"
+      finger: "index"
+      dof_index: 4
+      limit_lower: 0.0
+      limit_upper: 1.63
+
+    # 中指 (Middle) - 2 DOF
+    - name: "right_middle_proximal_joint"
+      finger: "middle"
+      dof_index: 5
+      limit_lower: 0.0
+      limit_upper: 1.41
+    - name: "right_middle_distal_joint"
+      finger: "middle"
+      dof_index: 6
+      limit_lower: 0.0
+      limit_upper: 1.63
+
+    # 无名指 (Ring) - 2 DOF
+    - name: "right_ring_proximal_joint"
+      finger: "ring"
+      dof_index: 7
+      limit_lower: 0.0
+      limit_upper: 1.41
+    - name: "right_ring_distal_joint"
+      finger: "ring"
+      dof_index: 8
+      limit_lower: 0.0
+      limit_upper: 1.63
+
+    # 小指 (Pinky) - 2 DOF
+    - name: "right_pinky_proximal_joint"
+      finger: "pinky"
+      dof_index: 9
+      limit_lower: 0.0
+      limit_upper: 1.41
+    - name: "right_pinky_distal_joint"
+      finger: "pinky"
+      dof_index: 10
+      limit_lower: 0.0
+      limit_upper: 1.63
+
+urdf_download:
+  source: "https://github.com/BrainCoTech/revo2_description"
+  path_in_repo: "urdf/ + meshes/"
+  note: "含左右手 URDF，mesh 为 STL，分别在 meshes/revo2_left_hand/ 和 meshes/revo2_right_hand/"
