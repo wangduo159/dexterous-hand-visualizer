@@ -1,0 +1,100 @@
+# 宇树 Dex3-1 灵巧手配置
+# 三指手：拇指(3DOF) + 中指(2DOF) + 食指(2DOF) = 7 DOF
+# URDF 来源: https://github.com/unitreerobotics/unitree_ros
+#            robots/dexterous_hand_description/dex3_1/
+
+hand_name: "unitree_dex3"
+display_name: "宇树 Dex3-1"
+dof: 7
+fingers: ["thumb", "middle", "index"]
+
+# URDF 文件路径（相对于 urdf_assets/unitree_dex3/）
+urdf:
+  left: "dex3_1_l.urdf"
+  right: "dex3_1_r.urdf"
+
+# 左手关节列表（顺序即为 retarget 输出的维度顺序）
+joints:
+  left:
+    - name: "left_hand_thumb_0_joint"
+      finger: "thumb"
+      dof_index: 0          # 拇指外展/内收 (Y轴旋转)
+      limit_lower: -1.0472  # -60°
+      limit_upper:  1.0472  #  60°
+    - name: "left_hand_thumb_1_joint"
+      finger: "thumb"
+      dof_index: 1          # 拇指近端弯曲 (Z轴)
+      limit_lower: -0.6109  # -35°
+      limit_upper:  1.0472  #  60°
+    - name: "left_hand_thumb_2_joint"
+      finger: "thumb"
+      dof_index: 2          # 拇指远端弯曲 (Z轴)
+      limit_lower: 0.0
+      limit_upper: 1.7453   # 100°
+    - name: "left_hand_middle_0_joint"
+      finger: "middle"
+      dof_index: 3          # 中指近端弯曲
+      limit_lower: -1.5708  # -90°
+      limit_upper:  0.0
+    - name: "left_hand_middle_1_joint"
+      finger: "middle"
+      dof_index: 4          # 中指远端弯曲
+      limit_lower: -1.7453  # -100°
+      limit_upper:  0.0
+    - name: "left_hand_index_0_joint"
+      finger: "index"
+      dof_index: 5          # 食指近端弯曲
+      limit_lower: -1.5708  # -90°
+      limit_upper:  0.0
+    - name: "left_hand_index_1_joint"
+      finger: "index"
+      dof_index: 6          # 食指远端弯曲
+      limit_lower: -1.7453  # -100°
+      limit_upper:  0.0
+
+  right:
+    - name: "right_hand_thumb_0_joint"
+      finger: "thumb"
+      dof_index: 0
+      limit_lower: -1.0472
+      limit_upper:  1.0472
+    - name: "right_hand_thumb_1_joint"
+      finger: "thumb"
+      dof_index: 1
+      limit_lower: -1.0472
+      limit_upper:  0.6109
+    - name: "right_hand_thumb_2_joint"
+      finger: "thumb"
+      dof_index: 2
+      limit_lower: -1.7453
+      limit_upper:  0.0
+    - name: "right_hand_middle_0_joint"
+      finger: "middle"
+      dof_index: 3
+      limit_lower: 0.0
+      limit_upper: 1.5708
+    - name: "right_hand_middle_1_joint"
+      finger: "middle"
+      dof_index: 4
+      limit_lower: 0.0
+      limit_upper: 1.7453
+    - name: "right_hand_index_0_joint"
+      finger: "index"
+      dof_index: 5
+      limit_lower: 0.0
+      limit_upper: 1.5708
+    - name: "right_hand_index_1_joint"
+      finger: "index"
+      dof_index: 6
+      limit_lower: 0.0
+      limit_upper: 1.7453
+
+# dex-retargeting 库输出的关节顺序映射
+# 如果 retarget 输出顺序与上面 joints 顺序不同，在此配置重排索引
+# retarget_output_order: [0, 1, 2, 3, 4, 5, 6]  # 默认不重排
+
+# URDF 下载说明
+urdf_download:
+  source: "https://github.com/unitreerobotics/unitree_ros"
+  path_in_repo: "robots/dexterous_hand_description/dex3_1/"
+  note: "需要同时下载 meshes/ 目录"
