@@ -230,8 +230,9 @@ class HandVisualizer:
         left_loader.log_static(rec)
         left_loader.log_sequence(rec, left_seq, fps=fps, timeline=timeline)
 
-        # 右手（偏移一段距离，避免重叠）
+        # 右手：沿 X 轴偏移 0.3m，避免与左手重叠
         right_loader = UrdfHandLoader(self.config, side="right", entity_root="hand/right")
+        rec.log("hand/right", rr.Transform3D(translation=[0.3, 0.0, 0.0]), static=True)
         right_loader.log_static(rec)
         right_loader.log_sequence(rec, right_seq, fps=fps, timeline=timeline)
 
