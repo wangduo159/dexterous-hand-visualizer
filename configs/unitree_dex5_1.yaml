@@ -1,0 +1,139 @@
+# 宇树 Dex5-1 灵巧手配置
+# 五指手：拇指(4DOF) + 食指(4DOF) + 中指(4DOF) + 无名指(4DOF) + 小指(4DOF) = 20 DOF
+# 命名规则：Link_XYR，X=手指编号(1=拇指,2=食指,3=中指,4=无名指,5=小指)，Y=节段编号
+# URDF 来源: https://github.com/unitreerobotics/unitree_ros
+#            robots/dexterous_hand_description/dex5_1/Dex5-URDF-R/
+
+hand_name: "unitree_dex5_1"
+display_name: "宇树 Dex5-1"
+dof: 20
+fingers: ["thumb", "index", "middle", "ring", "pinky"]
+
+# URDF 文件路径（相对于 urdf_assets/unitree_dex5_1/）
+urdf:
+  right: "Dex5-URDF-R.urdf"
+  # 左手暂无官方 URDF，可镜像处理
+
+# 右手关节列表（顺序即为 dof_index）
+# 关节命名：Yaw/Roll/Pitch_XYR
+#   Yaw_11R  = 拇指外展/内收
+#   Roll_12R = 拇指近端侧偏
+#   Pitch_13R/14R = 拇指弯曲
+#   Roll_X1R = 各手指侧偏（X=2~5）
+#   Pitch_X2R~X4R = 各手指弯曲
+joints:
+  right:
+    # 拇指 (Finger 1)
+    - name: "Yaw_11R"
+      finger: "thumb"
+      dof_index: 0
+      limit_lower: -0.5867   # ~-33.6°
+      limit_upper:  0.6803   # ~39.0°
+    - name: "Roll_12R"
+      finger: "thumb"
+      dof_index: 1
+      limit_lower: 0.0
+      limit_upper: 1.8151    # ~104°
+    - name: "Pitch_13R"
+      finger: "thumb"
+      dof_index: 2
+      limit_lower: 0.0
+      limit_upper: 1.7652    # ~101°
+    - name: "Pitch_14R"
+      finger: "thumb"
+      dof_index: 3
+      limit_lower: 0.0
+      limit_upper: 1.6406    # ~94°
+
+    # 食指 (Finger 2)
+    - name: "Roll_21R"
+      finger: "index"
+      dof_index: 4
+      limit_lower: -0.384    # ~-22°
+      limit_upper:  0.384    # ~22°
+    - name: "Pitch_22R"
+      finger: "index"
+      dof_index: 5
+      limit_lower: 0.0
+      limit_upper: 1.5708    # 90°
+    - name: "Pitch_23R"
+      finger: "index"
+      dof_index: 6
+      limit_lower: 0.0
+      limit_upper: 1.6842    # ~96°
+    - name: "Pitch_24R"
+      finger: "index"
+      dof_index: 7
+      limit_lower: 0.0
+      limit_upper: 1.3963    # 80°
+
+    # 中指 (Finger 3)
+    - name: "Roll_31R"
+      finger: "middle"
+      dof_index: 8
+      limit_lower: -0.384
+      limit_upper:  0.384
+    - name: "Pitch_32R"
+      finger: "middle"
+      dof_index: 9
+      limit_lower: 0.0
+      limit_upper: 1.5708
+    - name: "Pitch_33R"
+      finger: "middle"
+      dof_index: 10
+      limit_lower: 0.0
+      limit_upper: 1.6842
+    - name: "Pitch_34R"
+      finger: "middle"
+      dof_index: 11
+      limit_lower: 0.0
+      limit_upper: 1.3963
+
+    # 无名指 (Finger 4)
+    - name: "Roll_41R"
+      finger: "ring"
+      dof_index: 12
+      limit_lower: -0.384
+      limit_upper:  0.384
+    - name: "Pitch_42R"
+      finger: "ring"
+      dof_index: 13
+      limit_lower: 0.0
+      limit_upper: 1.5708
+    - name: "Pitch_43R"
+      finger: "ring"
+      dof_index: 14
+      limit_lower: 0.0
+      limit_upper: 1.6842
+    - name: "Pitch_44R"
+      finger: "ring"
+      dof_index: 15
+      limit_lower: 0.0
+      limit_upper: 1.3963
+
+    # 小指 (Finger 5)
+    - name: "Roll_51R"
+      finger: "pinky"
+      dof_index: 16
+      limit_lower: -0.384
+      limit_upper:  0.384
+    - name: "Pitch_52R"
+      finger: "pinky"
+      dof_index: 17
+      limit_lower: 0.0
+      limit_upper: 1.5708
+    - name: "Pitch_53R"
+      finger: "pinky"
+      dof_index: 18
+      limit_lower: 0.0
+      limit_upper: 1.6842
+    - name: "Pitch_54R"
+      finger: "pinky"
+      dof_index: 19
+      limit_lower: 0.0
+      limit_upper: 1.3963
+
+urdf_download:
+  source: "https://github.com/unitreerobotics/unitree_ros"
+  path_in_repo: "robots/dexterous_hand_description/dex5_1/Dex5-URDF-R/"
+  note: "目前仅有右手 URDF"
