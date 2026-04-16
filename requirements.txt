@@ -1,4 +1,4 @@
-rerun-sdk>=0.21.0
+rerun-sdk==0.26.2
 numpy>=1.24.0
 pyyaml>=6.0
 yourdfpy>=0.0.56
